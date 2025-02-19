@@ -1,10 +1,7 @@
 package com.ecommercesystem.ecombackend.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 
 import java.math.BigDecimal;
@@ -20,6 +17,10 @@ public class Product {
     private String description;
     private double price;
     private int quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Product() {
     }
