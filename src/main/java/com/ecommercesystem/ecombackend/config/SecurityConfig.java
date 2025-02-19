@@ -43,6 +43,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/products/**").hasAuthority("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/product/**").hasAuthority("ADMIN")
                         .requestMatchers("/cart/**").authenticated()
+                        .requestMatchers("/orders/**").authenticated()
                         .anyRequest().authenticated())
                 //.formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
