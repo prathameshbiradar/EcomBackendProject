@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -21,6 +22,9 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToMany(mappedBy = "product", cascade = CascadeType.ALL) // Added cascade
+    private List<Order> orders;
 
     public Product() {
     }
